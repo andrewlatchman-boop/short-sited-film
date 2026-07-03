@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Short-Sited</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #FF5A35;
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(38px, 8vw, 64px);
+    color: #ffffff;
+    margin-bottom: 14px;
+    letter-spacing: 0.01em;
+  }
+
+  .tagline {
+    font-style: italic;
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 44px;
+    letter-spacing: 0.02em;
+  }
+
+  .video-frame {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    aspect-ratio: 16 / 9;
+    background-color: #000000;
+    border: 1px solid rgba(255,255,255,0.12);
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: #000000;
+  }
+
+  .play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.35);
+    transition: background-color 0.2s ease;
+  }
+
+  .video-frame:hover .play-overlay {
+    background-color: rgba(0,0,0,0.5);
+  }
+
+  .play-button {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background-color: #FF5A35;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 0 rgba(255,90,53,0.4);
+    transition: transform 0.2s ease;
+  }
+
+  .video-frame:hover .play-button {
+    transform: scale(1.06);
+  }
+
+  .play-button svg {
+    margin-left: 5px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .credits {
+    margin-top: 40px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.9;
+  }
+</style>
+</head>
+<body>
+
+  <div class="eyebrow">The Dispatch Presents</div>
+  <h1>Short-Sited</h1>
+  <div class="tagline">All objects lead to one place</div>
+
+  <div class="video-frame" id="videoFrame">
+    <div class="play-overlay" id="playOverlay">
+      <div class="play-button">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="credits">
+    A Zeelo Production<br>
+    Directed by Andrew &quot;HubSpot&quot; Latchman
+  </div>
+
+<script>
+  const frame = document.getElementById('videoFrame');
+  const overlay = document.getElementById('playOverlay');
+  const videoId = 'PAIv80ci-wk';
+
+  frame.addEventListener('click', function() {
+    frame.innerHTML = '<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0&modestbranding=1" title="Short-Sited" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+  }, { once: true });
+</script>
+
+</body>
+</html>
